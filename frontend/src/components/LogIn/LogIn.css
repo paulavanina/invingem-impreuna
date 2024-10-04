@@ -1,0 +1,14 @@
+.su-form-container {
+  padding-top: 2px;
+  width: 400px;
+  height: 270px;
+  margin: auto;
+  margin-top: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+.su-form-component {
+  margin-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}

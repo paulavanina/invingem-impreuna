@@ -1,0 +1,38 @@
+.card {
+  width: 400px;
+  height: 450px;
+  margin-left: 20px;
+  position: relative;
+  background-color: var(--mantine-color-body);
+  transition: transform 0.3s ease-in-out;
+  @media (max-width: $mantine-breakpoint-sm) {
+    margin: 15px;
+  }
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.card-container {
+  margin: auto;
+  background-color: gray;
+}
+.rating {
+  position: absolute;
+  right: rem(12px);
+  pointer-events: none;
+}
+
+.title {
+  display: block;
+  margin-top: var(--mantine-spacing-md);
+  margin-bottom: rem(5px);
+}
+
+.footer {
+  margin-top: var(--mantine-spacing-md);
+}
+.button {
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: auto;
+  }
+}

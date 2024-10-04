@@ -1,0 +1,57 @@
+.hero {
+  position: relative;
+  background-image: url("../../assets/friends-photo.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  height: rem(700px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+  z-index: 1;
+  position: relative;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: rem(500px);
+    padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+  }
+}
+
+.title {
+  color: var(--mantine-color-white);
+  font-size: rem(60px);
+  font-weight: 900;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(40px);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: rem(28px);
+  }
+}
+
+.description {
+  color: var(--mantine-color-white);
+  max-width: rem(600px);
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 100%;
+    font-size: var(--mantine-font-size-sm);
+  }
+}
+
+.control {
+  margin-top: calc(var(--mantine-spacing-xl) * 1.5);
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: 100%;
+  }
+}
+
+.btn-green {
+  padding-top: 100px;
+  margin-top: 20px;
+}

@@ -1,0 +1,44 @@
+.title {
+  font-size: rem(34px);
+  font-weight: 900;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(24px);
+  }
+}
+
+.description {
+  max-width: rem(600px);
+  margin: auto;
+  &::after {
+    content: "";
+    display: block;
+    background-color: #f6cd4b;
+    width: rem(45px);
+    height: rem(2px);
+    margin-top: var(--mantine-spacing-sm);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.card {
+  width: 300px;
+  height: 220px;
+  border: rem(2px) solid
+    light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.1);
+}
+
+.cardTitle {
+  &::after {
+    content: "";
+    display: block;
+    width: rem(45px);
+    height: rem(2px);
+    margin-top: var(--mantine-spacing-sm);
+  }
+}

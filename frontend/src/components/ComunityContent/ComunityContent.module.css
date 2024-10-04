@@ -1,0 +1,51 @@
+.hero {
+  height: 700px;
+  position: relative;
+  background-image: url("../../assets/învingem împreună.png");
+
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 50px;
+  @media (max-width: $mantine-breakpoint-sm) {
+  }
+}
+
+.container {
+  padding: 30px;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: rem(500px);
+    padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+  }
+}
+.content {
+}
+
+.title {
+  color: black;
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(40px);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: rem(20px);
+  }
+}
+
+.description {
+  color: var(--mantine-color-white);
+  max-width: rem(600px);
+  margin-left: 0;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 100%;
+    font-size: 10px;
+  }
+}
+
+.control {
+  margin-top: calc(var(--mantine-spacing-xl) * 1.5);
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: 100%;
+  }
+}
