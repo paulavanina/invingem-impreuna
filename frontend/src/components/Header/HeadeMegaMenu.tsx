@@ -86,6 +86,9 @@ export function HeaderMegaMenu() {
         <a href="/comunitate" className={classes.link}>
           Comunitate
         </a>
+        <a href="/contulMeu" className={classes.link}>
+          Contul meu
+        </a>
         <Group>
           <Center>
             <Button

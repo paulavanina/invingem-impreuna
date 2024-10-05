@@ -11,23 +11,23 @@ import {
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
 import { useEffect, useState } from "react";
+import { useDisclosure } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { response } from "express";
 import deleteIcon from "../../assets/icons8-delete-24.png";
 
 export function BlogCard() {
-  const [blogs, setBlogs] = useState([
-    {
-      titlu: "",
-      descriere: "",
-      blog_id: "",
-      picture: "",
-      nume: "",
-      prenume: "",
-      avatar: "",
-    },
-  ]);
+  interface Blog {
+    titlu: string;
+    descriere: string;
+    blog_id: string;
+    picture: string;
+    nume: string;
+    prenume: string;
+    avatar: string;
+  }
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   const fetchBlogs = async () => {
     const token = localStorage.getItem("token");
@@ -41,7 +41,7 @@ export function BlogCard() {
         Authorization: `Bearer ${token}`,
       },
     };
-    const apiBlogs = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog-details";
+    const apiBlogs = "http://localhost:8080/blog-details";
     axios
       .get(apiBlogs, config)
       .then((response) => {
@@ -71,7 +71,7 @@ export function BlogCard() {
       },
       data: { blog_id },
     };
-    const deleteBlog = `https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/deleteBlog`;
+    const deleteBlog = `http://localhost:8080/deleteBlog`;
     try {
       const response = await axios.post(deleteBlog, { blog_id }, config);
       console.log(response.data);
@@ -85,13 +85,11 @@ export function BlogCard() {
   const handleSinglePageBlog = (blog_id: string) => {
     navigate(`/povestea-mea/${blog_id}`);
   };
-
+  if (blogs.length === 0) {
+    return null;
+  }
   return (
     <div className="card-container">
-      <Badge variant="filled" size="lg" color="#9a5576" mt={40} p={15} ml={150}>
-        POSTARILE TALE
-      </Badge>
-
       <Center>
         <SimpleGrid cols={{ base: 1, md: 3 }} mt={50}>
           {blogs.map((blog) => (

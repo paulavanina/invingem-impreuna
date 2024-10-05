@@ -1,5 +1,7 @@
 .contul-meu {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .profile-container {
   width: 400px;
@@ -43,4 +45,37 @@
 }
 .button {
   text-align: right;
+}
+@media (max-width: 768px) {
+  .contul-meu {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-container {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .content-container {
+    width: 400px;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.img-container {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.button {
+  text-align: right;
+  width: 100%;
 }
