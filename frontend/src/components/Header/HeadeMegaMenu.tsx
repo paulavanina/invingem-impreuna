@@ -32,15 +32,15 @@ export function HeaderMegaMenu() {
         <Group justify="space-between" h="100%">
           <img src={Logo} style={{ width: "90px", height: "auto" }} />
           <Group h="100%" gap={1} visibleFrom="sm">
-            <Link to="/" className={classes.link}>
-              Despre noi
-            </Link>
-            <Link to="/povestea-mea" className={classes.link}>
-              Povestea mea
-            </Link>
-            <a href="/comunitate" className={classes.link}>
-              Comunitate
-            </a>
+          <Link to="/" className={classes.link}>
+            Despre Noi
+          </Link>
+          <Link to="/povestea-mea" className={classes.link}>
+            Povestea Mea
+          </Link>
+          <Link to="/comunitate" className={classes.link}>
+            Comunitate
+          </Link>
           </Group>
 
           <Group visibleFrom="sm">
@@ -77,18 +77,18 @@ export function HeaderMegaMenu() {
         hiddenFrom="sm"
         zIndex={1000000}
       >
-        <a href="/" className={classes.link}>
-          Despre Noi
-        </a>
-        <a href="povestea-mea" className={classes.link}>
-          Povestea Mea
-        </a>
-        <a href="/comunitate" className={classes.link}>
-          Comunitate
-        </a>
-        <a href="/contulMeu" className={classes.link}>
-          Contul meu
-        </a>
+       <Link to="/" className={classes.link}>
+  Despre Noi
+</Link>
+<Link to="/povestea-mea" className={classes.link}>
+  Povestea Mea
+</Link>
+<Link to="/comunitate" className={classes.link}>
+  Comunitate
+</Link>
+<Link to="/contulMeu" className={classes.link}>
+  Contul meu
+</Link>
         <Group>
           <Center>
             <Button

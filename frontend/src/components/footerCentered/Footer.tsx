@@ -2,8 +2,8 @@ import { Group, Text, Center } from "@mantine/core";
 import classes from "./Footer.module.css";
 const links = [
   { label: "DESPRE NOI", link: "/despre-noi" },
-  { label: "POVESTEA MEA", link: "povestea-mea" },
-  { label: "COMUNITATE", link: "comunitate" },
+  { label: "POVESTEA MEA", link: "/povestea-mea" },
+  { label: "COMUNITATE", link: "/comunitate" },
 ];
 
 export function FooterCentered() {
