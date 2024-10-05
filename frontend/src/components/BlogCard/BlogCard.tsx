@@ -11,7 +11,6 @@ import {
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
 import { useEffect, useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { response } from "express";
