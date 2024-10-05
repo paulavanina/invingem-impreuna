@@ -33,7 +33,7 @@ export function SignUp() {
       formData.append("email", values.email);
       formData.append("parola", values.parola);
       formData.append("avatar", (values as any).avatar);
-      const signupURL = "http://localhost:8081/signup";
+      const signupURL = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/signup";
       const response = await axios.post(signupURL, formData, config);
       if (response.status === 200) {
         open();

@@ -10,7 +10,7 @@ export function Login(){
 
     const handleSubmit=async(values:any)=>{
         try{
-            const loginURL="http://localhost:8081/login"
+            const loginURL="https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/login"
             const response=await axios.post(loginURL, values);
             localStorage.setItem('token', response.data.token);
             console.log(response.data);
