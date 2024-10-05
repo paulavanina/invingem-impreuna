@@ -50,6 +50,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.12",
     "postcss": "^8.4.47",
+    "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
     "postcss-preset-mantine": "^1.16.0",
     "postcss-simple-vars": "^7.0.1",
