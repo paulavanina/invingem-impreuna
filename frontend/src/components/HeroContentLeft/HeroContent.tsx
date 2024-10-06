@@ -17,13 +17,13 @@ export function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container} size="md">
-        <Title className={classes.title}>
+        <Title className={classes.title} mt={40}>
           Bine ați venit la Împreună Învingem !
         </Title>
         <Text
           className={classes.description}
           fz={18}
-          mt="xl"
+          pt={10}
           style={{ color: "white" }}
         >
           Suntem aici pentru a aduce împreună oamenii din România care se
@@ -33,6 +33,7 @@ export function HeroContentLeft() {
         </Text>
 
         <Button
+          
           style={{ backgroundColor: "#004d49" }}
           radius="xl"
           size="xl"

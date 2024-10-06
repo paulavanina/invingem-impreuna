@@ -23,6 +23,9 @@
   margin-top: auto;
   background-color: white;
   border-radius: 10px;
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin: 10px;
+  }
 }
 .form-component {
   padding: 10px 10px 10px 10px;

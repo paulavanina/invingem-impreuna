@@ -9,12 +9,7 @@ const ComunityContent = () => {
   };
   return (
     <div className={classes.hero}>
-      <Overlay
-        hiddenFrom="sm"
-        gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(255, 255, 255, 1) 170%)"
-        opacity={30}
-        zIndex={0}
-      />
+   
       <div className="container">
         <div className="content">
           <Text pl={60} pt={200} fz={40}>
@@ -35,7 +30,6 @@ const ComunityContent = () => {
           <Button
             style={{ backgroundColor: "#F5C300" }}
             radius="xl"
-            size="xl"
             className={classes.control}
             ml={60}
             onClick={handleButton}

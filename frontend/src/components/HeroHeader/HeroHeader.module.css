@@ -20,6 +20,8 @@
 
   @media (max-width: $mantine-breakpoint-xs) {
     font-size: rem(28px);
+    padding-right: 10px;
+    text-align: center;
   }
 }
 .control {
@@ -32,7 +34,8 @@
   height: rem(450px);
   transition: transform 0.3s ease-in-out;
   @media (max-width: $mantine-breakpoint-md) {
-    display: none;
+    width: 0px;
+    height: 0px;
   }
 }
 .image:hover {

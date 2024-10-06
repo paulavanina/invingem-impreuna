@@ -23,7 +23,7 @@ export function HeroBullets() {
       <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>
-            Aici vei găsi conexiuni <span className="text">autentice</span>...
+            Aici vei găsi conexiuni autentice...
           </Title>
           <Text c="dimmed" mt="md">
             Fiecare poveste este unică și valoroasă. Împărtășindu-ți povestea,

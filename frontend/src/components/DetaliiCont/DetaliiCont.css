@@ -35,9 +35,6 @@
   margin-top: 30px;
   padding-top: 10px;
   margin-left: 20px;
-  @media (max-width: $mantine-breakpoint-sm) {
-    width: auto;
-  }
 }
 
 .editor-container {
@@ -56,11 +53,11 @@
   .profile-container {
     width: 90%;
     margin-left: 0;
+    margin-bottom: 20px;
   }
 
   .content-container {
-    width: 400px;
-    margin-left: 0;
+    width: 140%;
   }
 
   .button {
