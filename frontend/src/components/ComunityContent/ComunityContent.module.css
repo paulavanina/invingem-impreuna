@@ -18,8 +18,6 @@
     padding-bottom: calc(var(--mantine-spacing-xl) * 3);
   }
 }
-.content {
-}
 
 .title {
   color: black;

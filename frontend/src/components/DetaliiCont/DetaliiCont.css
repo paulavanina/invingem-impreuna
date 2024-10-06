@@ -35,6 +35,9 @@
   margin-top: 30px;
   padding-top: 10px;
   margin-left: 20px;
+  @media (max-width: 768px) {
+    width: 350px;
+  }
 }
 
 .editor-container {
@@ -54,10 +57,6 @@
     width: 90%;
     margin-left: 0;
     margin-bottom: 20px;
-  }
-
-  .content-container {
-    width: 140%;
   }
 
   .button {

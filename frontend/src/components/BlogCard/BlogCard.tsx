@@ -41,7 +41,7 @@ export function BlogCard() {
         Authorization: `Bearer ${token}`,
       },
     };
-    const apiBlogs = "http://localhost:8080/blog-details";
+    const apiBlogs = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog-details";
     axios
       .get(apiBlogs, config)
       .then((response) => {
@@ -71,7 +71,7 @@ export function BlogCard() {
       },
       data: { blog_id },
     };
-    const deleteBlog = `http://localhost:8080/deleteBlog`;
+    const deleteBlog = `https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/deleteBlog`;
     try {
       const response = await axios.post(deleteBlog, { blog_id }, config);
       console.log(response.data);
@@ -85,6 +85,7 @@ export function BlogCard() {
   const handleSinglePageBlog = (blog_id: string) => {
     navigate(`/povestea-mea/${blog_id}`);
   };
+  console.log(blogs);
   if (blogs.length === 0) {
     return null;
   }
