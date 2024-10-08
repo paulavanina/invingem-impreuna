@@ -6,6 +6,9 @@
   padding: 10px;
   background-color: var(--mantine-color-body);
   transition: transform 0.4s ease-in-out;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 }
 .card:hover {
   transform: scale(1.1);

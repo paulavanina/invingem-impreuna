@@ -5,6 +5,7 @@
   position: relative;
   background-color: var(--mantine-color-body);
   transition: transform 0.3s ease-in-out;
+  margin-bottom: 15px;
   @media (max-width: $mantine-breakpoint-sm) {
     margin: 15px;
   }

@@ -58,6 +58,12 @@ export function BlogSinglePage() {
   const handleBackButton = () => {
     navigate("/povestea-mea");
   };
+
+  const formatDate = (dateString:any) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('ro-RO');
+  };
+
   return (
     <div>
       <Container className={classes.wrapper} size={1400} mt={20}>
@@ -71,7 +77,7 @@ export function BlogSinglePage() {
             />
             <Text fz={17} inline>
               {blog.nume} {blog.prenume}
-              <Text c="dimmed">{blog.data_curenta}</Text>
+              <Text c="dimmed">{formatDate(blog.data_curenta)}</Text>
             </Text>
           </Center>
         </Group>

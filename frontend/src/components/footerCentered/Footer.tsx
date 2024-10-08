@@ -1,8 +1,8 @@
 import { Group, Text, Center } from "@mantine/core";
 import classes from "./Footer.module.css";
 const links = [
+  { label: "POVESTILE COMUNITATII ", link: "/povestea-mea" },
   { label: "DESPRE NOI", link: "/despre-noi" },
-  { label: "POVESTEA MEA", link: "/povestea-mea" },
   { label: "COMUNITATE", link: "/comunitate" },
 ];
 

@@ -28,6 +28,7 @@ const ComunityContent = () => {
             alții care se confruntă cu provocări similare.
           </Text>
           <Button
+            mt={20}
             style={{ backgroundColor: "#F5C300" }}
             radius="xl"
             className={classes.control}
@@ -36,6 +37,7 @@ const ComunityContent = () => {
           >
             Împărtășește-ti povestea
           </Button>
+         
         </div>
       </div>
     </div>

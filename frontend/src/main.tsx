@@ -30,7 +30,7 @@ if (rootElement) {
   root.render(
     <MantineProvider theme={theme}>
       <BrowserRouter>
-        <App />
+      <App />
       </BrowserRouter>
     </MantineProvider>
   );

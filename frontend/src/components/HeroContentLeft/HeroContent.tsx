@@ -33,7 +33,7 @@ export function HeroContentLeft() {
         </Text>
 
         <Button
-          
+          mt={30}
           style={{ backgroundColor: "#004d49" }}
           radius="xl"
           size="xl"

@@ -11,7 +11,6 @@ import {
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
 import { useEffect, useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { response } from "express";
@@ -85,7 +84,7 @@ export function BlogCard() {
   const handleSinglePageBlog = (blog_id: string) => {
     navigate(`/povestea-mea/${blog_id}`);
   };
-  console.log(blogs);
+  
   if (blogs.length === 0) {
     return null;
   }
@@ -113,7 +112,7 @@ export function BlogCard() {
                   </a>
                 </Card.Section>
 
-                <Text fw={500} component="a">
+                <Text fw={500} component="a" lineClamp={1}>
                   {blog.titlu}
                 </Text>
 

@@ -32,12 +32,13 @@ export function HeaderMegaMenu() {
         <Group justify="space-between" h="100%">
           <img src={Logo} style={{ width: "90px", height: "auto" }} />
           <Group h="100%" gap={1} visibleFrom="sm">
+            <Link to="/povestea-mea" className={classes.link}>
+            Poveștile comunității
+          </Link>
           <Link to="/" className={classes.link}>
             Despre Noi
           </Link>
-          <Link to="/povestea-mea" className={classes.link}>
-            Povestea Mea
-          </Link>
+        
           <Link to="/comunitate" className={classes.link}>
             Comunitate
           </Link>
@@ -77,12 +78,13 @@ export function HeaderMegaMenu() {
         hiddenFrom="sm"
         zIndex={1000000}
       >
+        <Link to="/povestea-mea"   className={classes.link}>
+        Poveștile Comunității 
+        </Link>
        <Link to="/" className={classes.link}>
-  Despre Noi
-</Link>
-<Link to="/povestea-mea" className={classes.link}>
-  Povestea Mea
-</Link>
+          Despre Noi
+        </Link>
+
 <Link to="/comunitate" className={classes.link}>
   Comunitate
 </Link>
