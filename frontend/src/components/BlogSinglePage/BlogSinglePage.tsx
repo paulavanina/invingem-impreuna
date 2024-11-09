@@ -38,7 +38,7 @@ export function BlogSinglePage() {
   });
 
   const fetchBlogs = async () => {
-    const apiSinglePageBlog = `https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog-page-details/${blog_id}`;
+    const apiSinglePageBlog = `http://localhost:8081/blog-page-details/${blog_id}`;
     axios
       .get(apiSinglePageBlog)
       .then((response) => {

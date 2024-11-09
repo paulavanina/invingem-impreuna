@@ -33,7 +33,7 @@ export function CardPage() {
   ]);
 
   const fetchBlogs = async () => {
-    const apiBlogs = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blogs";
+    const apiBlogs = "http://localhost:8081/blogs";
     axios
       .get(apiBlogs)
       .then((response) => {

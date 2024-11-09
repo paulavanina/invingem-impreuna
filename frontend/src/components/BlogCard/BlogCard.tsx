@@ -40,13 +40,12 @@ export function BlogCard() {
         Authorization: `Bearer ${token}`,
       },
     };
-    const apiBlogs = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog-details";
+    const apiBlogs = "http://localhost:8081/blog-details";
     axios
       .get(apiBlogs, config)
       .then((response) => {
         setBlogs(response.data);
-        console.log(response.data);
-        fetchBlogs();
+       
       })
       .catch((error) => {
         console.error("eroare");
@@ -70,7 +69,7 @@ export function BlogCard() {
       },
       data: { blog_id },
     };
-    const deleteBlog = `https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/deleteBlog`;
+    const deleteBlog = `http://localhost:8081/deleteBlog`;
     try {
       const response = await axios.post(deleteBlog, { blog_id }, config);
       console.log(response.data);
