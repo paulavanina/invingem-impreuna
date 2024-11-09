@@ -22,7 +22,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 8081;
 app.use(
   cors({
-    origin: "https://invingem-impreuna.vercel.app",
+    origin: "*",
     credentials: true,
     methods: "GET, POST, OPTIONS, PUT, PATCH, DELETE",
   })
