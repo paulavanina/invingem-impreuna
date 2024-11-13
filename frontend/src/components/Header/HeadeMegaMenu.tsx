@@ -13,6 +13,9 @@ import classes from "./HeaderMegaMenu.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import profile from "../../assets/icons8-user-48.png";
 export function HeaderMegaMenu() {
+
+  const isLoggedIn=localStorage.getItem("token");
+
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
 
@@ -45,9 +48,13 @@ export function HeaderMegaMenu() {
           </Group>
 
           <Group visibleFrom="sm">
-            <Link to="/contulMeu" className={classes.link}>
-              <Image src={profile} width="30" height="30"></Image>
-            </Link>
+          {isLoggedIn ? (
+          <Link to="/contulMeu" className={classes.link}>
+            <Image src={profile} width="30" height="30" />
+          </Link>
+        ) : (
+          <></>
+        )}
             <Button variant="default" onClick={handleLogin} radius="xl">
               Log in
             </Button>

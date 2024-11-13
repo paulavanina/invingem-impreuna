@@ -7,6 +7,7 @@ import Autentificare from "./pages/Autentificare/Autentificare";
 import ContulMeu from "./pages/ContulMeu.tsx/ContulMeu";
 
 import SinglePageBlog from "./pages/SinglePageBlog/SinglePageBlog";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 function App() {
   return (
     <div>
@@ -17,8 +18,11 @@ function App() {
         <Route path="comunitate" element={<Comunitate />} />
         <Route path="logIn" element={<Autentificare />} />
         <Route path="signUp" element={<Inscriere />} />
-        <Route path="contulMeu" element={<ContulMeu />} />
+       
         <Route path="povestea-mea/:blog_id" element={<SinglePageBlog />} />
+      
+        <Route path="contulMeu" element={<ProtectedRoute><ContulMeu /></ProtectedRoute>}  />
+        
       </Routes>
     </div>
   );
