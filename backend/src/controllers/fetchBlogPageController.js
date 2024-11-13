@@ -5,7 +5,7 @@ const fetchBlogPageController = async (req, res) => {
   try {
     const { blog_id } = req.params;
     const sql =
-      "SELECT blogs.blog_id, blogs.titlu, blogs.descriere, blogs.picture, blogs.data_curenta, Users.nume, Users.prenume, Users.avatar FROM [dbo].[blogs] INNER JOIN Users on blogs.userUUID=Users.userUUID  WHERE blogs.blog_id=@blog_id";
+      "SELECT blogs.blog_id, blogs.titlu, blogs.descriere, blogs.picture, Users.nume, Users.prenume, Users.avatar FROM [dbo].[blogs] INNER JOIN Users on blogs.userUUID=Users.userUUID  WHERE blogs.blog_id=@blog_id";
     const request = new mssql.Request();
     request.input("blog_id", mssql.UniqueIdentifier, blog_id);
     request.query(sql, (err, result) => {
