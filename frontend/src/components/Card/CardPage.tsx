@@ -9,6 +9,7 @@ import {
   SimpleGrid,
   Title,
 } from "@mantine/core";
+import arrowIcon from '../../assets/arrow-right-circle.svg'
 import classes from "./CardPage.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -57,7 +58,7 @@ export function CardPage() {
             component="span"
             inherit
             variant="gradient"
-            gradient={{ from: "pink", to: "yellow" }}
+            gradient={{ from: "#d4a480", to: "#ab594a" }}
           >
             Inspiră
           </Text>{" "}
@@ -112,18 +113,25 @@ export function CardPage() {
                     {blog.nume} {blog.prenume}
                   </Text>
                   <Button
-                    mt="xs"
-                    mr="xs"
-                    mb={8}
-                    style={{
-                      position: "absolute",
-                      bottom: "12px",
-                      right: "10px",
-                    }}
-                    onClick={() => handleSinglePageBlog(blog.blog_id)}
-                  >
-                    Read more
-                  </Button>
+                      mt="xs"
+                      mr="xs"
+                      mb={8}
+                      color="#fff"
+                      style={{
+                        position: "absolute",
+                        bottom: "12px",
+                        right: "10px",
+                      }}
+                      styles={{
+                        label: { color: "#43824f" } 
+                      }}
+                      onClick={() => handleSinglePageBlog(blog.blog_id)}
+                    >
+                    <Group>
+                      Read more
+                      <Image src={arrowIcon}/>
+                    </Group>
+                    </Button>
                 </Group>
               </Card>
             </Center>

@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { response } from "express";
 import deleteIcon from "../../assets/icons8-delete-24.png";
-
+import arrowIcon from '../../assets/arrow-right-circle.svg'
 export function BlogCard() {
   interface Blog {
     titlu: string;
@@ -162,14 +162,21 @@ export function BlogCard() {
                       mt="xs"
                       mr="xs"
                       mb={8}
+                      color="#fff"
                       style={{
                         position: "absolute",
                         bottom: "12px",
                         right: "10px",
                       }}
+                      styles={{
+                        label: { color: "#43824f" } 
+                      }}
                       onClick={() => handleSinglePageBlog(blog.blog_id)}
                     >
+                    <Group>
                       Read more
+                      <Image src={arrowIcon}/>
+                    </Group>
                     </Button>
                   </Group>
                 </Group>

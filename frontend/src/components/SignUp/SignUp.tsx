@@ -133,7 +133,7 @@ export function SignUp() {
           </Modal>
 
           <Group justify="center" pr={10} pt={8}>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" style={{ backgroundColor: "#43824f" }}>Submit</Button>
           </Group>
         </form>
       </div>

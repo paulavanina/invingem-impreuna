@@ -8,9 +8,9 @@ import {
   SimpleGrid,
 } from "@mantine/core";
 import classes from "./FeaturesImages.module.css";
-import bookIcon from "../../assets/book.png";
-import heartIcon from "../../assets/heart.png";
-import messageIcon from "../../assets/message.png";
+import bookIcon from "../../assets/blog-post-list-2.jpg";
+import heartIcon from "../../assets/h2-blog-img-1.jpg";
+import messageIcon from "../../assets/h2-blog-img-3.jpg";
 import webinareIcon from "../../assets/friends.png";
 const data = [
   {
@@ -48,27 +48,25 @@ export function FeaturesImages() {
   const items = data.map((item) => (
     <div className={classes.item} key={item.id}>
       <ThemeIcon
-        style={{ backgroundColor: "#e6fdf3" }}
+         style={{ padding: 0, backgroundColor: 'transparent' }}
         className={classes.itemIcon}
-        size={60}
+        size={200}
         radius="md"
       >
-        <img src={item.image} className={classes.iconImage} />
+       <img src={item.image} style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
       </ThemeIcon>
 
       <div>
-        <Text fw={700} fz="lg" className={classes.itemTitle}>
-          {item.title}
-        </Text>
+        <Text fw={600}>{item.title}</Text>
         <Text c="dimmed">{item.description}</Text>
       </div>
     </div>
   ));
 
   return (
-    <Container size={700} className={classes.wrapper}>
+    <Container size={900} className={classes.wrapper}>
       <Group justify="center" pb={20}>
-        <Badge size="lg" color="#F5C300">
+        <Badge size="lg" color="#43824f">
           SPRINJIN ȘI INFORMAȚII
         </Badge>
       </Group>

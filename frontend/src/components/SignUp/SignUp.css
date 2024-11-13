@@ -2,17 +2,11 @@
   width: auto;
   height: 680px;
   margin-top: 0px;
-  background-image: linear-gradient(
-    to bottom,
-    #ffffff,
-    #cfdced,
-    #8cbfd3,
-    #40a3a6,
-    #068466
-  );
+  background-color: "#5a9e7c";
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("https://findall.qodeinteractive.com/wp-content/uploads/2019/08/landing-background.jpg");
 }
 
 .form-container {

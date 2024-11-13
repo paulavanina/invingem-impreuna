@@ -45,7 +45,7 @@ export function Login(){
                     />
                     
                     <Group justify="center" pr={10} pt={10} >
-                        <Button type="submit" className='su-form-component'>Submit</Button>
+                        <Button type="submit" className='su-form-component' style={{ backgroundColor: "#43824f" }}>Submit</Button>
                     </Group>
             </form>
          </div>

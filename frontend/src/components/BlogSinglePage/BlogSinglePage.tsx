@@ -16,7 +16,6 @@ import back from "../../assets/back.png";
 interface Blog {
   titlu: string;
   descriere: string;
-  data_curenta: string;
   blog_id: string;
   picture: string;
   nume: string;
@@ -29,7 +28,6 @@ export function BlogSinglePage() {
   const [blog, setBlogs] = useState<Blog>({
     titlu: "",
     descriere: "",
-    data_curenta: "",
     blog_id: "",
     picture: "",
     nume: "",
@@ -77,7 +75,7 @@ export function BlogSinglePage() {
             />
             <Text fz={17} inline>
               {blog.nume} {blog.prenume}
-              <Text c="dimmed">{formatDate(blog.data_curenta)}</Text>
+              
             </Text>
           </Center>
         </Group>

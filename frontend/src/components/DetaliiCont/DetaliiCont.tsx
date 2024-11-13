@@ -110,7 +110,8 @@ export const DetaliiCont = () => {
           <div className="email">Email: {userData.email}</div>
           <Center>
             {" "}
-            <Button mt={60} onClickCapture={logout}>
+            <Button mt={60} onClickCapture={logout} radius={20} style={{ backgroundColor: "#d4a480" }} >
+    
               Log out
             </Button>
           </Center>
@@ -148,7 +149,7 @@ export const DetaliiCont = () => {
               />
             </div>
 
-            <Button type="submit" m={20} className="button">
+            <Button type="submit"  radius={20} m={20} className="button"  style={{ backgroundColor: "#43824f" }} >
               Publica postarea
             </Button>
           </div>
