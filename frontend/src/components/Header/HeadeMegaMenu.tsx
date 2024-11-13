@@ -52,8 +52,7 @@ export function HeaderMegaMenu() {
               Log in
             </Button>
             <Button
-              variant="gradient"
-              gradient={{ from: "pink", to: "yellow" }}
+              style={{ backgroundColor: "#43824f" }}
               onClick={handleSignUp}
               radius="xl"
             >
@@ -106,8 +105,7 @@ export function HeaderMegaMenu() {
               mt={10}
               onClick={handleSignUp}
               radius="xl"
-              variant="gradient"
-              gradient={{ from: "pink", to: "yellow" }}
+              style={{ backgroundColor: "#43824f" }}
             >
               Sign up
             </Button>

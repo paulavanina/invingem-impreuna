@@ -10,7 +10,7 @@ export function Login(){
 
     const handleSubmit=async(values:any)=>{
         try{
-            const loginURL="https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/login"
+            const loginURL = "http://localhost:8081/login";
             const response=await axios.post(loginURL, values);
             localStorage.setItem('token', response.data.token);
             console.log(response.data);
@@ -45,7 +45,7 @@ export function Login(){
                     />
                     
                     <Group justify="center" pr={10} pt={10} >
-                        <Button type="submit" className='su-form-component'>Submit</Button>
+                        <Button type="submit" className='su-form-component' style={{ backgroundColor: "#43824f" }}>Submit</Button>
                     </Group>
             </form>
          </div>

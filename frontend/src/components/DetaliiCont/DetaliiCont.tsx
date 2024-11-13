@@ -47,7 +47,7 @@ export const DetaliiCont = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const userProfileURL = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/user-profile";
+    const userProfileURL = "http://localhost:8081/user-profile";
 
     axios
       .get(userProfileURL, config)
@@ -78,7 +78,7 @@ export const DetaliiCont = () => {
       formData.append("titlu", values.titlu);
       formData.append("descriere", values.descriere);
       formData.append("picture", (values as any).picture);
-      const blogURL = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog";
+      const blogURL = "http://localhost:8081/blog";
       const response = await axios.post(blogURL, formData, config);
       console.log(response.data);
     } catch (error) {
@@ -110,7 +110,8 @@ export const DetaliiCont = () => {
           <div className="email">Email: {userData.email}</div>
           <Center>
             {" "}
-            <Button mt={60} onClickCapture={logout}>
+            <Button mt={60} onClickCapture={logout} radius={20} style={{ backgroundColor: "#d4a480" }} >
+    
               Log out
             </Button>
           </Center>
@@ -148,7 +149,7 @@ export const DetaliiCont = () => {
               />
             </div>
 
-            <Button type="submit" m={20} className="button">
+            <Button type="submit"  radius={20} m={20} className="button"  style={{ backgroundColor: "#43824f" }} >
               Publica postarea
             </Button>
           </div>

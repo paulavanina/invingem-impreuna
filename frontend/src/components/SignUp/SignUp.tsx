@@ -33,7 +33,8 @@ export function SignUp() {
       formData.append("email", values.email);
       formData.append("parola", values.parola);
       formData.append("avatar", (values as any).avatar);
-      const signupURL = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/signup";
+      //https://backend-invingem-impreuna-ctd6c8fwetdxamc4.westeurope-01.azurewebsites.net/
+      const signupURL = "http://localhost:8081/signup";
       const response = await axios.post(signupURL, formData, config);
       if (response.status === 200) {
         open();
@@ -132,7 +133,7 @@ export function SignUp() {
           </Modal>
 
           <Group justify="center" pr={10} pt={8}>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" style={{ backgroundColor: "#43824f" }}>Submit</Button>
           </Group>
         </form>
       </div>

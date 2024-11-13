@@ -29,7 +29,7 @@ const ComunityContent = () => {
           </Text>
           <Button
             mt={20}
-            style={{ backgroundColor: "#F5C300" }}
+            style={{ backgroundColor: "#d4a480" }}
             radius="xl"
             className={classes.control}
             ml={60}

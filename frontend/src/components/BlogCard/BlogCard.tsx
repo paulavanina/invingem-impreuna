@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { response } from "express";
 import deleteIcon from "../../assets/icons8-delete-24.png";
-
+import arrowIcon from '../../assets/arrow-right-circle.svg'
 export function BlogCard() {
   interface Blog {
     titlu: string;
@@ -40,13 +40,12 @@ export function BlogCard() {
         Authorization: `Bearer ${token}`,
       },
     };
-    const apiBlogs = "https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/blog-details";
+    const apiBlogs = "http://localhost:8081/blog-details";
     axios
       .get(apiBlogs, config)
       .then((response) => {
         setBlogs(response.data);
-        console.log(response.data);
-        fetchBlogs();
+       
       })
       .catch((error) => {
         console.error("eroare");
@@ -70,7 +69,7 @@ export function BlogCard() {
       },
       data: { blog_id },
     };
-    const deleteBlog = `https://invingem-impreuna-backend-egdhhxdaeuehcca7.westeurope-01.azurewebsites.net/deleteBlog`;
+    const deleteBlog = `http://localhost:8081/deleteBlog`;
     try {
       const response = await axios.post(deleteBlog, { blog_id }, config);
       console.log(response.data);
@@ -163,14 +162,21 @@ export function BlogCard() {
                       mt="xs"
                       mr="xs"
                       mb={8}
+                      color="#fff"
                       style={{
                         position: "absolute",
                         bottom: "12px",
                         right: "10px",
                       }}
+                      styles={{
+                        label: { color: "#43824f" } 
+                      }}
                       onClick={() => handleSinglePageBlog(blog.blog_id)}
                     >
+                    <Group>
                       Read more
+                      <Image src={arrowIcon}/>
+                    </Group>
                     </Button>
                   </Group>
                 </Group>

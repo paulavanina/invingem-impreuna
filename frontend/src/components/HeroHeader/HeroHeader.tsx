@@ -36,7 +36,7 @@ export function HeroBullets() {
             spacing="sm"
             size="sm"
             icon={
-              <ThemeIcon size={20} radius="xl" color="#068466">
+              <ThemeIcon size={20} radius="xl" color="#43824f">
                 <IconCheck
                   style={{ width: rem(12), height: rem(12) }}
                   stroke={1.5}
@@ -69,8 +69,8 @@ export function HeroBullets() {
             <Button
               radius="xl"
               size="md"
-              variant="gradient"
-              gradient={{ from: "pink", to: "yellow" }}
+              
+              color="#d4a480"
               className={classes.control}
               onClick={handleButton}
             >
