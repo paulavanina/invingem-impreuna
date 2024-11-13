@@ -11,7 +11,7 @@ import classes from "./FeaturesImages.module.css";
 import bookIcon from "../../assets/blog-post-list-2.jpg";
 import heartIcon from "../../assets/h2-blog-img-1.jpg";
 import messageIcon from "../../assets/h2-blog-img-3.jpg";
-import webinareIcon from "../../assets/friends.png";
+import webinareIcon from "../../assets/laptop.jpg";
 const data = [
   {
     id: 1,
