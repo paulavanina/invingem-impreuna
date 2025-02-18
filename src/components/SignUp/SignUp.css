@@ -1,0 +1,51 @@
+.background-container {
+  width: auto;
+  height: 680px;
+  margin-top: 0px;
+  background-color: "#5a9e7c";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://findall.qodeinteractive.com/wp-content/uploads/2019/08/landing-background.jpg");
+}
+
+.form-container {
+  padding-top: 2px;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  margin-top: auto;
+  background-color: white;
+  border-radius: 10px;
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin: 10px;
+  }
+}
+.form-component {
+  padding: 10px 10px 10px 10px;
+}
+
+.modal-container {
+  height: 380px;
+}
+.modal-center {
+  text-align: center;
+  font-size: 20px;
+}
+
+.modal-bottom {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.error-modal-container {
+  text-align: center;
+  height: 200px;
+}
+.error-modal-top {
+  padding-bottom: 20px;
+}
+.error-modal-center,
+.error-modal-bottom {
+  padding: 10px;
+}

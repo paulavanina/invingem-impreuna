@@ -1,0 +1,24 @@
+.card {
+  width: 400px;
+  height: 450px;
+  margin: auto;
+  display: flex;
+  padding: 10px;
+  background-color: var(--mantine-color-body);
+  transition: transform 0.4s ease-in-out;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+}
+.card:hover {
+  transform: scale(1.1);
+}
+.title {
+  display: block;
+  margin-top: var(--mantine-spacing-md);
+  margin-bottom: rem(5px);
+}
+
+.footer {
+  margin-top: var(--mantine-spacing-md);
+}
