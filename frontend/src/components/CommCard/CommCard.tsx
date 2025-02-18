@@ -57,7 +57,7 @@ export function CommCard() {
           <Text fz="lg" className={classes.cardTitle} mt="md">
             {" "}
             {feature.name}{" "}
-            <Text fz="sm" color="#068466">
+            <Text fz="sm" color="#d4a480">
               {feature.status}
             </Text>
           </Text>
@@ -72,7 +72,7 @@ export function CommCard() {
   return (
     <Container className={classes["container-background"]}>
       <Group justify="center" pt={60}>
-        <Badge color="#068466" size="lg">
+        <Badge color="#43824f" size="lg">
           RECENZII SI TESTIMONIALE
         </Badge>
       </Group>
