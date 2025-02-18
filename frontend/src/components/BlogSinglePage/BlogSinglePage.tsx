@@ -105,6 +105,8 @@ export function BlogSinglePage() {
         </div>
       </Container>
     </div>
+    
+    
   );
 }
 export default BlogSinglePage;

@@ -15,14 +15,14 @@ import webinareIcon from "../../assets/laptop.jpg";
 const data = [
   {
     id: 1,
-    image: heartIcon,
+    image: bookIcon,
     title: "Comunitate de Suport",
     description:
       "Împărtășește-ți povestea despre cum lupți cu cancerul pentru a deveni o sursă de speranță și inspirație pentru alții.",
   },
   {
     id: 2,
-    image: bookIcon,
+    image: heartIcon,
     title: "Testimoniale",
     description:
       "Citește mărturii și povești de succes de la oameni care au învins sau care se află în lupta cu cancerul.",
@@ -83,9 +83,14 @@ export function FeaturesImages() {
         </Text>
       </Container>
 
-      <SimpleGrid cols={{ base: 1, xs: 2 }} spacing={50} mt={30}>
+      <SimpleGrid  visibleFrom="sm" cols={{ base: 1, xs: 2 }} spacing={50} mt={30}>
         {items}
       </SimpleGrid>
+
+      <SimpleGrid  visibleFrom="xs" hiddenFrom="sm" cols={{ base: 1, xs: 1 }} spacing={50} mt={30}>
+        {items}
+      </SimpleGrid>
+
     </Container>
   );
 }
