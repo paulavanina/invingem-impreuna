@@ -53,4 +53,4 @@ jobs:
           app-name: 'backend-invingem-impreuna'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_15930357D4164135A912AE45D4732AF1 }}
-          package: backend
+          package: node-app
