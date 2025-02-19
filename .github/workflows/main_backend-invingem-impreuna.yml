@@ -24,15 +24,14 @@ jobs:
           npm install
           npm run build --if-present
 
-      - name: List backend files
-        shell: bash
-        run: ls -lah backend
+      - name: Verify backend files before upload
+        run: ls -lah ./backend  
   
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: ./backend  # Asigură-te că calea este corectă și include toate fișierele backend
+          path: ./backend
           if-no-files-found: error
 
   deploy:
@@ -49,8 +48,11 @@ jobs:
           name: node-app
           path: ./backend  
 
-      - name: List downloaded files
+      - name: List downloaded files from artifact
         run: ls -lah ./backend  
+
+      - name: Clean old files from backend
+        run: rm -rf ./backend/*  
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -59,4 +61,4 @@ jobs:
           app-name: 'backend-invingem-impreuna'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_15930357D4164135A912AE45D4732AF1 }}
-          package: ./backend  
+          package: ./backend   
