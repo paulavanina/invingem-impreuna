@@ -25,7 +25,7 @@ jobs:
           npm run build --if-present
 
       - name: Verify backend files before upload
-        run: ls -lah ./backend  
+        run: Get-ChildItem -Path ./backend -Recurse
   
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
