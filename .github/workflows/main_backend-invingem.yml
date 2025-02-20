@@ -1,4 +1,6 @@
-# GitHub Actions Workflow pentru deploy pe Azure
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy Node.js app to Azure Web App - backend-invingem
 
 on:
@@ -14,7 +16,8 @@ jobs:
       contents: read 
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Node.js version
         uses: actions/setup-node@v3
@@ -26,7 +29,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-        working-directory: backend 
+        working-directory: ./backend
 
       - name: Zip artifact for deployment
         run: |
@@ -46,8 +49,8 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write
-      contents: read 
+      id-token: write # Required for requesting the JWT
+      contents: read # Required for actions/checkout
 
     steps:
       - name: Download artifact from build job
@@ -56,12 +59,9 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
-        working-directory: backend  # ADĂUGAT
-
-      - name: Install dependencies on Azure server
-        run: npm install
-        working-directory: backend  # ADĂUGAT
+        run: |
+          mkdir -p backend
+          unzip release.zip -d backend
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -76,4 +76,4 @@ jobs:
         with:
           app-name: 'backend-invingem'
           slot-name: 'Production'
-          package: backend  # ADĂUGAT
+          package: backend
