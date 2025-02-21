@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          npm ci
+          npm start
           npm run build --if-present
         working-directory: ./backend
 
