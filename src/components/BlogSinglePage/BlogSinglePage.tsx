@@ -36,7 +36,7 @@ export function BlogSinglePage() {
   });
 
   const fetchBlogs = async () => {
-    const apiSinglePageBlog = `http://localhost:8081/blog-page-details/${blog_id}`;
+    const apiSinglePageBlog = `https://invingem-impreuna-backend-production.up.railway.app/${blog_id}`;
     axios
       .get(apiSinglePageBlog)
       .then((response) => {

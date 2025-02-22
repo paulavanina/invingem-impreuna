@@ -34,7 +34,7 @@ export function CardPage() {
   ]);
 
   const fetchBlogs = async () => {
-    const apiBlogs = "https://backend-invingem-impreuna-ctd6c8fwetdxamc4.westeurope-01.azurewebsites.net/blogs";
+    const apiBlogs = "https://backend-invingem-d7egc2a8chedhqdy.westeurope-01.azurewebsites.net/blogs";
     axios
       .get(apiBlogs)
       .then((response) => {
