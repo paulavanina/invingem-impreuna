@@ -47,7 +47,7 @@ export const DetaliiCont = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const userProfileURL = "http://localhost:8081/user-profile";
+    const userProfileURL = "https://invingem-impreuna-backend-production.up.railway.app/user-profile";
 
     axios
       .get(userProfileURL, config)
@@ -78,7 +78,7 @@ export const DetaliiCont = () => {
       formData.append("titlu", values.titlu);
       formData.append("descriere", values.descriere);
       formData.append("picture", (values as any).picture);
-      const blogURL = "http://localhost:8081/blog";
+      const blogURL = "https://invingem-impreuna-backend-production.up.railway.app/blog";
       const response = await axios.post(blogURL, formData, config);
       console.log(response.data);
     } catch (error) {
