@@ -40,7 +40,7 @@ export function BlogCard() {
         Authorization: `Bearer ${token}`,
       },
     };
-    const apiBlogs = "http://localhost:8081/blog-details";
+    const apiBlogs = "https://invingem-impreuna-backend-production.up.railway.app/blog-details";
     axios
       .get(apiBlogs, config)
       .then((response) => {
@@ -69,7 +69,7 @@ export function BlogCard() {
       },
       data: { blog_id },
     };
-    const deleteBlog = `http://localhost:8081/deleteBlog`;
+    const deleteBlog = `https://invingem-impreuna-backend-production.up.railway.app/deleteBlog`;
     try {
       const response = await axios.post(deleteBlog, { blog_id }, config);
       console.log(response.data);
