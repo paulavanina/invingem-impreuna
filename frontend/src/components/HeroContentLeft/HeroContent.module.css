@@ -14,7 +14,7 @@
   padding-bottom: calc(var(--mantine-spacing-xl) * 3);
   z-index: 1;
   position: relative;
-
+  margin-top: 50px;
   @media (max-width: $mantine-breakpoint-sm) {
     height: rem(500px);
     padding-bottom: calc(var(--mantine-spacing-xl) * 3);

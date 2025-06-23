@@ -20,7 +20,7 @@ export const SignUpValidation = {
     prenume: (value: string) =>
       value.length < 3 ? "Prenumele trebuie sa aiba cel putin 3 litere" : null,
     email: (value: string) =>
-      /^\S+@\S+$/.test(value) ? null : "Invalid email",
+      /^\S+@\S+$/.test(value) ? null : "Email invalid",
     parola: (val: string) =>
       val.length <= 6 ? "Parola trebuie sa contina minim 6 caractere" : null,
   },

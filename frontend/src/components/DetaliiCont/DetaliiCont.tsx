@@ -5,86 +5,100 @@ import {
   Center,
   FileInput,
   Textarea,
+  Modal,
 } from "@mantine/core";
 import "./DetaliiCont.css";
 import { useForm } from "@mantine/form";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { response } from "express";
 import { useNavigate } from "react-router-dom";
-
+import EditProfile from "./EditProfile";
 interface BlogInterface {
   titlu: string;
   descriere: string;
+  picture: File | null;
 }
+
 export const DetaliiCont = () => {
-  const Blog = {
+  const blogForm = useForm<BlogInterface>({
     initialValues: {
-      mode: "uncontrolled",
       titlu: "",
       descriere: "",
-      picture: "",
+      picture: null,
     },
-  };
-  const form = useForm<BlogInterface>(Blog);
+
+    validate: {
+      titlu: (value) =>
+        value.trim().length < 5 ? "Titlul trebuie să aibă cel puțin 5 caractere" : null,
+
+      descriere: (value) =>
+        value.trim().length < 10 ? "Descrierea este prea scurtă" : null,
+    },
+  });
 
   const [userData, setUserData] = useState({
     nume: "",
     prenume: "",
     email: "",
     avatar: "",
+    userUUID: "",
   });
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [editModalOpen, setEditModalOpen] = useState(false);
 
-  useEffect(() => {
+  const fetchUserData = async () => {
     const token = localStorage.getItem("token");
-
     if (!token) {
-      console.error("token-ul lipseste");
+      console.error("token-ul lipsește");
       return;
     }
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const userProfileURL = "https://invingem-impreuna-backend-production.up.railway.app/user-profile";
 
-    axios
-      .get(userProfileURL, config)
-      .then((response) => {
-        setUserData(response.data);
-      })
-      .catch((error) => {
-        console.error("eroare");
-      });
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    try {
+      const response = await axios.get(
+        "https://invingem-impreuna-backend-production.up.railway.app/user-profile",
+        config
+      );
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Eroare la preluarea profilului");
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
   }, []);
 
   const handleSubmit = async (values: BlogInterface) => {
     try {
       const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("token-ul lipseste");
-        return;
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      };
+      if (!token) return;
 
       const formData = new FormData();
       formData.append("titlu", values.titlu);
       formData.append("descriere", values.descriere);
-      formData.append("picture", (values as any).picture);
-      const blogURL = "https://invingem-impreuna-backend-production.up.railway.app/blog";
-      const response = await axios.post(blogURL, formData, config);
-      console.log(response.data);
+      if (values.picture) formData.append("picture", values.picture);
+
+      await axios.post(
+        "https://invingem-impreuna-backend-production.up.railway.app/blog",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      blogForm.reset();
     } catch (error) {
-      console.error("Eroare in inserarea datelor in bd.");
+      console.error("Eroare la publicarea postării");
     }
   };
+
   const navigate = useNavigate();
   const logout = () => {
     localStorage.removeItem("token");
@@ -108,26 +122,56 @@ export const DetaliiCont = () => {
           <div className="nume">Nume: {userData.nume}</div>
           <div className="prenume">Prenume: {userData.prenume} </div>
           <div className="email">Email: {userData.email}</div>
+
           <Center>
-            {" "}
-            <Button mt={60} onClickCapture={logout} radius={20} style={{ backgroundColor: "#d4a480" }} >
-    
+            <Button
+              mt={20}
+              radius={20}
+              style={{ backgroundColor: "#d4a480" }}
+              onClick={() => setEditModalOpen(true)}
+            >
+              Editează contul
+            </Button>
+          </Center>
+
+          <Modal
+            opened={editModalOpen}
+            onClose={() => setEditModalOpen(false)}
+            title="Editează contul"
+            centered
+            size="lg"
+          >
+            <EditProfile
+              userData={userData}
+              onUpdateSuccess={() => {
+                setEditModalOpen(false);
+                fetchUserData();
+              }}
+            />
+          </Modal>
+
+          <Center>
+            <Button
+              mt={10}
+              radius={20}
+              onClickCapture={logout}
+              style={{ backgroundColor: "#d4a480" }}
+            >
               Log out
             </Button>
           </Center>
         </div>
 
-        {/* Blog: */}
-        <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
+        {/* Form publicare postare */}
+        <form onSubmit={blogForm.onSubmit((values) => handleSubmit(values))}>
           <div className="content-container">
             <TextInput
               label="Titlu"
-              placeholder="Titlul postarii"
+              placeholder="Titlul postării"
               p={20}
               pb={0}
-              key={form.key("titlu")}
-              {...form.getInputProps("titlu")}
-            ></TextInput>
+              {...blogForm.getInputProps("titlu")}
+            />
             <div className="textarea">
               <Textarea
                 label="Descriere"
@@ -136,21 +180,25 @@ export const DetaliiCont = () => {
                 minRows={6}
                 p={20}
                 pb={0}
-                key={form.key("descriere")}
-                {...form.getInputProps("descriere")}
+                {...blogForm.getInputProps("descriere")}
               />
             </div>
             <div className="img-container">
               <FileInput
                 accept="image/png,image/jpeg"
-                label="Incarca o imagine:"
-                placeholder="Upload files"
-                onChange={(file) => form.setFieldValue("picture", file)}
+                label="Încarcă o imagine:"
+                placeholder="Upload"
+                onChange={(file) => blogForm.setFieldValue("picture", file)}
               />
             </div>
-
-            <Button type="submit"  radius={20} m={20} className="button"  style={{ backgroundColor: "#43824f" }} >
-              Publica postarea
+            <Button
+              type="submit"
+              radius={20}
+              m={20}
+              className="button"
+              style={{ backgroundColor: "#43824f" }}
+            >
+              Publică postarea
             </Button>
           </div>
         </form>

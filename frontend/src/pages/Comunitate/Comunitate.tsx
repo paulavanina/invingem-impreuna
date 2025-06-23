@@ -1,15 +1,16 @@
+import Chatbot from "../../components/ChatBot/Chatbot";
 import { CommCard } from "../../components/CommCard/CommCard";
-import ComunityContent from "../../components/ComunityContent/ComunityContent";
-import { FooterLinks } from "../../components/Footer/FooterLinks";
 import { FooterCentered } from "../../components/footerCentered/Footer";
 import { HeaderMegaMenu } from "../../components/Header/HeadeMegaMenu";
+import { FaqWithImage } from "../../components/Questions/Questions";
 
 const Comunitate = () => {
   return (
     <div className="comunity">
       <HeaderMegaMenu />
-      <ComunityContent />
       <CommCard />
+      <FaqWithImage />
+      <Chatbot />
       <FooterCentered />
     </div>
   );

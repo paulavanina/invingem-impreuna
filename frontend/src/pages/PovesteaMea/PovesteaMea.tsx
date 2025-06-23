@@ -1,8 +1,8 @@
 import { HeaderMegaMenu } from "../../components/Header/HeadeMegaMenu";
-import { FooterLinks } from "../../components/Footer/FooterLinks";
-import { Title, Text, Center } from "@mantine/core";
 import { CardPage } from "../../components/Card/CardPage";
 import { FooterCentered } from "../../components/footerCentered/Footer";
+import Chatbot from "../../components/ChatBot/Chatbot";
+
 
 const PovesteaMea = () => {
   return (

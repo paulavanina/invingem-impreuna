@@ -7,14 +7,15 @@ import {
   Avatar,
   Button,
   SimpleGrid,
-  Badge,
 } from "@mantine/core";
 import classes from "./BlogCard.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "@mantine/core";
 import axios from "axios";
-import { response } from "express";
+import EditBlogCard from "./EditBlogCard";
 import deleteIcon from "../../assets/icons8-delete-24.png";
+import editIcon from "../../assets/pencil.png"
 import arrowIcon from '../../assets/arrow-right-circle.svg'
 export function BlogCard() {
   interface Blog {
@@ -27,7 +28,7 @@ export function BlogCard() {
     avatar: string;
   }
   const [blogs, setBlogs] = useState<Blog[]>([]);
-
+  const [editingBlog, setEditingBlog] = useState<string | null>(null);
   const fetchBlogs = async () => {
     const token = localStorage.getItem("token");
 
@@ -45,7 +46,6 @@ export function BlogCard() {
       .get(apiBlogs, config)
       .then((response) => {
         setBlogs(response.data);
-       
       })
       .catch((error) => {
         console.error("eroare");
@@ -56,18 +56,21 @@ export function BlogCard() {
     fetchBlogs();
   }, []);
 
-  const handleDeleteButton = async (blog_id: any) => {
+  const handleDeleteButton = async (blog_id: string) => {
     const token = localStorage.getItem("token");
 
     if (!token) {
       console.error("token-ul lipseste");
       return;
     }
+
+    const confirmare = window.confirm("Esti sigur ca doresti sa stergi acesta postare?");
+    if (!confirmare) return;
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
-      },
-      data: { blog_id },
+      }
     };
     const deleteBlog = `https://invingem-impreuna-backend-production.up.railway.app/deleteBlog`;
     try {
@@ -83,10 +86,12 @@ export function BlogCard() {
   const handleSinglePageBlog = (blog_id: string) => {
     navigate(`/povestea-mea/${blog_id}`);
   };
-  
+
   if (blogs.length === 0) {
     return null;
   }
+
+
   return (
     <div className="card-container">
       <Center>
@@ -143,13 +148,34 @@ export function BlogCard() {
                     {blog.nume} {blog.prenume}
                   </Text>
                   <Group>
+                    <Button onClick={() => setEditingBlog(blog.blog_id)} color="#FFF"
+                      mt="xs" ml={130} mb={7} style={{
+                        position: "absolute",
+                        bottom: "12px",
+                      }}> <Image src={editIcon} width={20} height={20}></Image></Button>
+                    <Modal
+                      opened={editingBlog === blog.blog_id}
+                      onClose={() => setEditingBlog(null)}
+                      title="Editează postarea"
+                      centered
+                      size="lg"
+                    >
+                      <EditBlogCard
+                        blog_id={blog.blog_id}
+                        titlu={blog.titlu}
+                        descriere={blog.descriere}
+                        onUpdateSuccess={() => {
+                          setEditingBlog(null);
+                          fetchBlogs();
+                        }}
+                      />
+                    </Modal>
                     <Button
                       color="#FFF"
                       mt="xs"
                       mb={8}
-                      mr="xs"
-                      ml={190}
-                      pr={10}
+                      ml={170}
+                      pr={0}
                       style={{
                         position: "absolute",
                         bottom: "12px",
@@ -160,7 +186,6 @@ export function BlogCard() {
                     </Button>
                     <Button
                       mt="xs"
-                      mr="xs"
                       mb={8}
                       color="#fff"
                       style={{
@@ -169,14 +194,14 @@ export function BlogCard() {
                         right: "10px",
                       }}
                       styles={{
-                        label: { color: "#43824f" } 
+                        label: { color: "#43824f" }
                       }}
                       onClick={() => handleSinglePageBlog(blog.blog_id)}
                     >
-                    <Group>
-                      Read more
-                      <Image src={arrowIcon}/>
-                    </Group>
+                      <Group>
+                        Read more
+                        <Image src={arrowIcon} />
+                      </Group>
                     </Button>
                   </Group>
                 </Group>

@@ -48,12 +48,12 @@ export function FeaturesImages() {
   const items = data.map((item) => (
     <div className={classes.item} key={item.id}>
       <ThemeIcon
-         style={{ padding: 0, backgroundColor: 'transparent' }}
+        style={{ padding: 0, backgroundColor: 'transparent' }}
         className={classes.itemIcon}
         size={200}
         radius="md"
       >
-       <img src={item.image} style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
+        <img src={item.image} style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
       </ThemeIcon>
 
       <div>
@@ -83,11 +83,11 @@ export function FeaturesImages() {
         </Text>
       </Container>
 
-      <SimpleGrid  visibleFrom="sm" cols={{ base: 1, xs: 2 }} spacing={50} mt={30}>
+      <SimpleGrid visibleFrom="sm" cols={{ base: 1, xs: 2 }} spacing={50} mt={30}>
         {items}
       </SimpleGrid>
 
-      <SimpleGrid  visibleFrom="xs" hiddenFrom="sm" cols={{ base: 1, xs: 1 }} spacing={50} mt={30}>
+      <SimpleGrid visibleFrom="xs" hiddenFrom="sm" cols={{ base: 1, xs: 1 }} spacing={50} mt={30}>
         {items}
       </SimpleGrid>
 

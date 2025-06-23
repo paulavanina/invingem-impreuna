@@ -69,7 +69,7 @@ export function HeroBullets() {
             <Button
               radius="xl"
               size="md"
-              
+              mb={40}
               color="#d4a480"
               className={classes.control}
               onClick={handleButton}

@@ -1,3 +1,8 @@
+.container-background{
+  background-color: #eaf3e2;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 .title {
   font-size: rem(34px);
   font-weight: 900;

@@ -14,8 +14,8 @@ import { Link, useNavigate } from "react-router-dom";
 import profile from "../../assets/icons8-user-48.png";
 export function HeaderMegaMenu() {
 
-  const isLoggedIn=localStorage.getItem("token");
-
+  const isLoggedIn = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
 
@@ -36,25 +36,34 @@ export function HeaderMegaMenu() {
           <img src={Logo} style={{ width: "90px", height: "auto" }} />
           <Group h="100%" gap={1} visibleFrom="sm">
             <Link to="/povestea-mea" className={classes.link}>
-            Poveștile comunității
-          </Link>
-          <Link to="/" className={classes.link}>
-            Despre Noi
-          </Link>
-        
-          <Link to="/comunitate" className={classes.link}>
-            Comunitate
-          </Link>
+              Poveștile comunității
+            </Link>
+            <Link to="/" className={classes.link}>
+              Despre Noi
+            </Link>
+
+            <Link to="/comunitate" className={classes.link}>
+              Comunitate
+            </Link>
+
+            {isLoggedIn && role == "admin" ? (
+              <Link to="/panouAdministrare" className={classes.link}>
+                Administrare
+              </Link>
+            ) : (
+              <></>
+            )}
+
           </Group>
 
           <Group visibleFrom="sm">
-          {isLoggedIn ? (
-          <Link to="/contulMeu" className={classes.link}>
-            <Image src={profile} width="30" height="30" />
-          </Link>
-        ) : (
-          <></>
-        )}
+            {isLoggedIn ? (
+              <Link to="/contulMeu" className={classes.link}>
+                <Image src={profile} width="30" height="30" />
+              </Link>
+            ) : (
+              <></>
+            )}
             <Button variant="default" onClick={handleLogin} radius="xl">
               Log in
             </Button>
@@ -84,19 +93,19 @@ export function HeaderMegaMenu() {
         hiddenFrom="sm"
         zIndex={1000000}
       >
-        <Link to="/povestea-mea"   className={classes.link}>
-        Poveștile Comunității 
+        <Link to="/povestea-mea" className={classes.link}>
+          Poveștile Comunității
         </Link>
-       <Link to="/" className={classes.link}>
+        <Link to="/" className={classes.link}>
           Despre Noi
         </Link>
 
-<Link to="/comunitate" className={classes.link}>
-  Comunitate
-</Link>
-<Link to="/contulMeu" className={classes.link}>
-  Contul meu
-</Link>
+        <Link to="/comunitate" className={classes.link}>
+          Comunitate
+        </Link>
+        <Link to="/contulMeu" className={classes.link}>
+          Contul meu
+        </Link>
         <Group>
           <Center>
             <Button
