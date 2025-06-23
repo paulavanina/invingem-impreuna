@@ -5,9 +5,9 @@ import Comunitate from "./pages/Comunitate/Comunitate";
 import Inscriere from "./pages/Inscriere/Inscriere";
 import Autentificare from "./pages/Autentificare/Autentificare";
 import ContulMeu from "./pages/ContulMeu.tsx/ContulMeu";
-
 import SinglePageBlog from "./pages/SinglePageBlog/SinglePageBlog";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import PanouDeAdministrare from "./pages/PanouDeAdministrare/PanouDeAdministrare";
 function App() {
   return (
     <div>
@@ -18,11 +18,9 @@ function App() {
         <Route path="comunitate" element={<Comunitate />} />
         <Route path="logIn" element={<Autentificare />} />
         <Route path="signUp" element={<Inscriere />} />
-       
         <Route path="povestea-mea/:blog_id" element={<SinglePageBlog />} />
-      
-        <Route path="contulMeu" element={<ProtectedRoute><ContulMeu /></ProtectedRoute>}  />
-        
+        <Route path="contulMeu" element={<ProtectedRoute><ContulMeu /></ProtectedRoute>} />
+        <Route path="panouAdministrare" element={<ProtectedRoute><PanouDeAdministrare /></ProtectedRoute>} />
       </Routes>
     </div>
   );

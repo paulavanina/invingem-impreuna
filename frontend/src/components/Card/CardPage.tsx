@@ -8,16 +8,20 @@ import {
   Button,
   SimpleGrid,
   Title,
+  Pagination,
 } from "@mantine/core";
 import arrowIcon from '../../assets/arrow-right-circle.svg'
 import classes from "./CardPage.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { response } from "express";
 import { useNavigate } from "react-router-dom";
 
 export function CardPage() {
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 6;
+
   const navigate = useNavigate();
+
   const handleSinglePageBlog = (blog_id: string) => {
     navigate(`/povestea-mea/${blog_id}`);
   };
@@ -39,6 +43,7 @@ export function CardPage() {
       .get(apiBlogs)
       .then((response) => {
         setBlogs(response.data);
+
       })
       .catch((error) => {
         console.error("eroare");
@@ -49,9 +54,13 @@ export function CardPage() {
     fetchBlogs();
   }, []);
 
+  const totalPages = Math.ceil(blogs.length / itemsPerPage);
+  const currentItems = blogs.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+
   return (
-    <div className="card-container">
-      <Center p="sm" mt={40} className="page-title">
+    <div className={classes.containerBlogs}>
+      <Center p="sm" mt={90} className="page-title">
         <Title>
           Împărtășește,{" "}
           <Text
@@ -67,7 +76,7 @@ export function CardPage() {
       </Center>
       <Center>
         <SimpleGrid cols={{ base: 1, md: 3 }} mt={50}>
-          {blogs.map((blog) => (
+          {currentItems.map((blog) => (
             <Center key={blog.blog_id}>
               <Card withBorder radius="md" shadow="lg" className={classes.card}>
                 <Card.Section>
@@ -85,7 +94,7 @@ export function CardPage() {
                   {blog.titlu}
                 </Text>
 
-                <Text fz="sm" c="dimmed" lineClamp={7}>
+                <Text fz="sm" c="dimmed" lineClamp={4}>
                   {blog.descriere}
                 </Text>
 
@@ -113,30 +122,34 @@ export function CardPage() {
                     {blog.nume} {blog.prenume}
                   </Text>
                   <Button
-                      mt="xs"
-                      mr="xs"
-                      mb={8}
-                      color="#fff"
-                      style={{
-                        position: "absolute",
-                        bottom: "12px",
-                        right: "10px",
-                      }}
-                      styles={{
-                        label: { color: "#43824f" } 
-                      }}
-                      onClick={() => handleSinglePageBlog(blog.blog_id)}
-                    >
+                    mt="xs"
+                    mr="xs"
+                    mb={8}
+                    color="#fff"
+                    style={{
+                      position: "absolute",
+                      bottom: "12px",
+                      right: "10px",
+                    }}
+                    styles={{
+                      label: { color: "#43824f" }
+                    }}
+                    onClick={() => handleSinglePageBlog(blog.blog_id)}
+                  >
                     <Group>
                       Read more
-                      <Image src={arrowIcon}/>
+                      <Image src={arrowIcon} />
                     </Group>
-                    </Button>
+                  </Button>
                 </Group>
               </Card>
             </Center>
           ))}
         </SimpleGrid>
+      </Center>
+
+      <Center mt={40}>
+        <Pagination value={page} onChange={setPage} total={totalPages} color="rgb(67, 130, 79)" />
       </Center>
     </div>
   );

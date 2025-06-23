@@ -1,18 +1,17 @@
 import axios from "axios";
 import {
-  Title,
   Text,
   Container,
   Avatar,
   Group,
   Center,
-  Image,
-  Button,
 } from "@mantine/core";
 import classes from "./SinglePageText.module.css";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import back from "../../assets/back.png";
+import { useParams } from "react-router-dom";
+import { AddComment } from "../Comments/AddComment";
+import { Comm } from "../Comments/Comment";
+
 interface Blog {
   titlu: string;
   descriere: string;
@@ -52,61 +51,41 @@ export function BlogSinglePage() {
     fetchBlogs();
   }, [blog_id]);
 
-  const navigate = useNavigate();
-  const handleBackButton = () => {
-    navigate("/povestea-mea");
-  };
 
-  const formatDate = (dateString:any) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('ro-RO');
-  };
+  const isLoggedIn = Boolean(localStorage.getItem("token"));
 
   return (
-    <div>
-      <Container className={classes.wrapper} size={1400} mt={20}>
-        <Group justify="space-between">
-          <Center p={10}>
+    <div className={classes.containerBlogs}>
+      <Container className={classes.wrapper} size={1400} mt={100}>
+
+        <Container size={900}><Group justify="space-between">
+          <Center>
             <Avatar
               src={`data:image/jpeg;base64,${blog.avatar}`}
               size={50}
               radius="xl"
               mr="xs"
             />
-            <Text fz={17} inline>
+            <Text fz={16} inline>
               {blog.nume} {blog.prenume}
-              
             </Text>
           </Center>
         </Group>
-        <Title className={classes.title}>{blog.titlu}</Title>
-        <Image
-          className="img"
-          src={`data:image/jpeg;base64,${blog.picture}`}
-          height={400}
-          p={10}
-          radius={15}
-        />
-        <Container p={30} size={800}>
-          <Text fz={17} c="dimmed" className={classes.description}>
+          <Text fz={22} pt={10} className={classes.title}>{blog.titlu}</Text>
+          <img
+            className={classes.img}
+            src={`data:image/jpeg;base64,${blog.picture}`}
+          />
+          <Text fz={17} c="dimmed" mb={10} className={classes.description}>
             {blog.descriere}
           </Text>
+          {isLoggedIn && <AddComment />}
+          <Comm blog_id={blog_id!} />
         </Container>
-        <div style={{ display: "grid", justifyContent: "end" }}>
-          <Button
-            color="#FFF"
-            radius="xl"
-            mb={10}
-            style={{ width: 40, height: 40, padding: 0 }}
-            onClick={handleBackButton}
-          >
-            <Image src={back} width={40} height={40} />
-          </Button>
-        </div>
       </Container>
+
     </div>
-    
-    
   );
 }
+
 export default BlogSinglePage;

@@ -37,7 +37,8 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.25.1",
     "recharts": "^2.12.7",
-    "sass": "^1.79.4"
+    "sass": "^1.79.4",
+    "swiper": "^11.2.5"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

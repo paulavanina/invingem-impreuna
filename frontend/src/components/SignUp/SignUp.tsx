@@ -33,7 +33,7 @@ export function SignUp() {
       formData.append("email", values.email);
       formData.append("parola", values.parola);
       formData.append("avatar", (values as any).avatar);
-      
+
       const signupURL = "https://invingem-impreuna-backend-production.up.railway.app/signup";
       const response = await axios.post(signupURL, formData, config);
       if (response.status === 200) {

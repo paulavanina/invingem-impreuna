@@ -1,0 +1,3 @@
+.commentInput{
+    padding: calc(1.875rem * var(--mantine-scale));
+}
