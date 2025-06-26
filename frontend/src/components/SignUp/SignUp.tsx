@@ -32,7 +32,9 @@ export function SignUp() {
       formData.append("prenume", values.prenume);
       formData.append("email", values.email);
       formData.append("parola", values.parola);
-      formData.append("avatar", (values as any).avatar);
+      if (values.avatar) {
+        formData.append("avatar", values.avatar);
+      }
 
       const signupURL = "https://invingem-impreuna-backend-production.up.railway.app/signup";
       const response = await axios.post(signupURL, formData, config);
@@ -118,7 +120,7 @@ export function SignUp() {
             </div>
           </Modal>
 
-          <Modal opened={openedError} onClose={closeError}>
+          <Modal opened={openedError} onClose={closeError} >
             <div className="error-modal-container">
               <div className="error-modal-top">
                 <Center>
