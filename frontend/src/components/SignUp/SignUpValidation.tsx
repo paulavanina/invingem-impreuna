@@ -1,7 +1,7 @@
 export interface Isignup {
   nume: string;
   prenume: string;
-  avatar: string;
+  avatar: File | null;
   email: string;
   parola: string;
 }
@@ -11,7 +11,7 @@ export const SignUpValidation = {
     nume: "",
     prenume: "",
     email: "",
-    avatar: "",
+    avatar: null,
     parola: "",
   },
   validate: {

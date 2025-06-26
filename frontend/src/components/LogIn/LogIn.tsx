@@ -5,6 +5,10 @@ import { LoginValidation } from './LoginValidation';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export function Login() {
+    type LoginValues = {
+        email: string;
+        parola: string;
+    };
     const form = useForm(LoginValidation);
 
     const handleSubmit = async (values: any) => {

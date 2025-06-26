@@ -41,7 +41,8 @@ export function Comm({ blog_id }: CommProps) {
 
     const deleteComment = async (comment_id: string) => {
         try {
-
+            const confirmare = window.confirm("Esti sigur ca doresti sa stergi acest utilizator?");
+            if (!confirmare) return;
             const token = localStorage.getItem("token");
             await axios.delete(`https://invingem-impreuna-backend-production.up.railway.app/comments/${comment_id}`, {
                 headers: {

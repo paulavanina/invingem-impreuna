@@ -34,6 +34,8 @@ export function Blogs() {
     const handleDelete = async (blog_id: string) => {
         const confirmare = window.confirm("Esti sigur ca doresti sa stergi acest blog?");
         if (!confirmare) return;
+        console.log("Stergem blog cu ID:", blog_id);
+
         try {
             const token = localStorage.getItem("token");
             await axios.delete(`https://invingem-impreuna-backend-production.up.railway.app/blogs/${blog_id}`,
@@ -42,6 +44,7 @@ export function Blogs() {
                         Authorization: `Bearer ${token}`
                     },
                 });
+            fetchBlogs();
         } catch (error) {
             console.error("Eroare la stergerea blogului", error);
         }
